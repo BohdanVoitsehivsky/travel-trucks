@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import CamperCard from "@/components/CamperCard";
 import { useCamperStore } from "@/store/useCampersStore";
+import Filters from "@/components/Filters/Filters";
 
 export default  function CatalogPage() {
 
@@ -13,7 +14,7 @@ export default  function CatalogPage() {
         hasMore,
         isLoading,
     } = useCamperStore();
-
+ 
     useEffect(() => {
         fetchCampers();
 
@@ -21,7 +22,8 @@ export default  function CatalogPage() {
 
 
     return (
-        <main>
+        <main style={ {display: "flex", gap: "40px" }}>
+            <Filters/>
         <h1> Catalog</h1>
         {isLoading && campers.length === 0 && <p>Loading...</p>}
         <ul>
