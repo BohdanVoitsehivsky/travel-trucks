@@ -8,6 +8,7 @@ type GetCampersParams = {
   limit?: number;
   location?: string;
   form?: string;
+  transmission?: string;
   features?: string[];
 }
 
@@ -24,6 +25,7 @@ export async function getCampers(params: GetCampersParams): Promise<Camper[]> {
       limit: params.limit,
       location: params.location,
       form: params.form,
+      transmission: params.transmission,
       ...Object.fromEntries(
         params.features?.map((feature) => [feature, true]) ?? []
       ),

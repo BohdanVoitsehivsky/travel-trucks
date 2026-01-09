@@ -5,6 +5,7 @@ import {create} from "zustand";
 type Filters = {
     location: string;
     form: string;
+    transmission: string;
     features: string[];
 }
 
@@ -29,6 +30,7 @@ export const useCamperStore = create<CampersState> ((set,get) => ({
     filters: {
         location: "",
         form: "",
+        transmission: "",
         features: [],
 
     },
