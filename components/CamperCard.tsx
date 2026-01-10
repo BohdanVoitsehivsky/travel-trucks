@@ -29,6 +29,8 @@ const FEATURE_MAP = [
 export default function CamperCard ({camper}: CamperCardProps) {
     const previewImage = camper.gallery?.[0]?.thumb;
 
+    const reviewCount = camper.reviews.length
+
     
     return (
 
@@ -51,7 +53,9 @@ export default function CamperCard ({camper}: CamperCardProps) {
                 <SvgIcon 
                 name={camper.rating > 0 ? "yellowStar" : "whiteStar"}
                 width={16} height={16} />
-  <span>{camper.rating}</span>
+  <span>
+    {camper.rating} ({reviewCount} Reviews)
+  </span>
   </p>
             <p>{camper.location}</p>
             <p>{camper.description}</p>
