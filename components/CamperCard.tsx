@@ -2,6 +2,7 @@ import { Camper } from "@/types/camper";
 import Link from "next/link";
 import Image from "next/image";
 import SvgIcon from "./SvgIcon";
+import { useFavoriteStore } from "@/store/useFavoriteStore";
 
 interface CamperCardProps {
     camper: Camper;
@@ -31,6 +32,10 @@ export default function CamperCard ({camper}: CamperCardProps) {
 
     const reviewCount = camper.reviews.length
 
+    const { toggleFavorite, isFavorite } = useFavoriteStore();
+    const favorite = isFavorite(camper.id);
+
+
     
     return (
 
@@ -48,7 +53,17 @@ export default function CamperCard ({camper}: CamperCardProps) {
         <div>
             <h2>{camper.name}</h2>
             
-            <p>€{camper.price.toFixed(2)}</p>
+            <div>
+  <p>€{camper.price.toFixed(2)}</p>
+
+  <button onClick={() => toggleFavorite(camper)}>
+    <SvgIcon
+      name={favorite ? "redheart" : "blackheart"}
+      width={24}
+      height={24}
+    />
+  </button>
+</div>
             <p>
                 <SvgIcon 
                 name={camper.rating > 0 ? "yellowStar" : "whiteStar"}
