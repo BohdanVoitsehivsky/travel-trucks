@@ -18,7 +18,7 @@ export default function BookingForm() {
       comment,
     };
 
-    console.log("Booking data:", data);
+    
     alert("Booking request sent!");
   };
 
