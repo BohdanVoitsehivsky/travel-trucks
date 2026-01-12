@@ -1,5 +1,7 @@
 
 "use client";
+import styles from "./CatalogPage.module.css";
+
 import { useEffect } from "react";
 import CamperCard from "@/components/CamperCard";
 import { useCamperStore } from "@/store/useCampersStore";
@@ -18,28 +20,32 @@ export default  function CatalogPage() {
     useEffect(() => {
         fetchCampers();
 
-    }, [fetchCampers])
-console.log("campers:", campers);
-console.log("isArray:", Array.isArray(campers));
+    }, [])
+
 
     return (
-        <main style={ {display: "flex", gap: "40px" }}>
-            <Filters/>
-        <h1> Catalog</h1>
-        {isLoading && campers.length === 0 && <p>Loading...</p>}
-        <ul>
-            
-            {campers.map(camper => (
-                <CamperCard key={camper.id} camper={camper} />
-            ))}
-        </ul>
+        <main className={styles.wrapper}>
+  <aside className={styles.sidebar}>
+    <Filters />
+  </aside>
 
-        {hasMore && (
-            <button onClick={loadMore} disabled={isLoading}>
-                {isLoading ? "Loading..." : "Load More"}
-                </button>
-        )}
-        </main>
+  <section className={styles.content}>
+    <h1 className={styles.title}>Catalog</h1>
+
+    <ul className={styles.list}>
+      {campers.map(camper => (
+        <CamperCard key={camper.id} camper={camper} />
+      ))}
+    </ul>
+
+    {hasMore && (
+      <button className={styles.loadMore} onClick={loadMore}>
+        Load more
+      </button>
+    )}
+  </section>
+</main>
+
     )
 
 }

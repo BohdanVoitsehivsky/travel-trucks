@@ -1,7 +1,13 @@
 "use client";
 import { useState } from "react";
+import SvgIcon from "@/components/SvgIcon";
 import { useCamperStore } from "@/store/useCampersStore";
-
+import styles from "./Filters.module.css";
+import {
+  TRANSMISSION_OPTIONS,
+  EQUIPMENT_OPTIONS,
+  VEHICLE_TYPES,
+} from "./Filters.config";
 export default function Filters() {
     const {setFilters, resetCampers, fetchCampers} = useCamperStore();
     const [location, setLocation] = useState("");
@@ -31,125 +37,83 @@ export default function Filters() {
         };
     
     return (
-        <aside>
-           <div>
-        <label>Location</label>
+        <aside className={styles.sidebar}>
+           <div className={styles.block}>
+        <label className={styles.label}>Location</label>
         <input
-         type="text"
+          className={styles.input}
+          type="text"
           placeholder="Kyiv, Ukraine"
-          value={location} 
-          onChange={(e) => setLocation(e.target.value)}
-          />
-      </div> 
+          value={location}
+          onChange={e => setLocation(e.target.value)}
+        />
+      </div>
 
-      <h2>Filters</h2>
+      <h2 className={styles.title}>Filters</h2>
 
-    
 
-      <div>
-        <h3>Vehicle equipment</h3>
+        <div className={styles.block}>
+  <h3 className={styles.subtitle}>Transmission</h3>
 
-        <label>
-          <input 
-          type="checkbox"
-           checked={features.includes("AC")}
-           onChange={() => toggleFeature("AC")}
-            />
-          AC
-        </label>
+  <div className={styles.grid}>
+    {TRANSMISSION_OPTIONS.map(option => (
+      <label key={option.value} className={styles.card}>
+        <input
+          type="radio"
+          name="transmission"
+          checked={transmission === option.value}
+          onChange={() => setTransmission(option.value)}
+        />
 
-        <label>
-  <input
-    type="radio"
-    name="transmission"
-    value="automatic"
-    checked={transmission === "automatic"}
-    onChange={() => setTransmission("automatic")}
-  />
-  Automatic
-</label>
-
-<label>
-  <input
-    type="radio"
-    name="transmission"
-    value="manual"
-    checked={transmission === "manual"}
-    onChange={() => setTransmission("manual")}
-  />
-  Manual
-</label>
+        <SvgIcon name={option.icon} width={32} height={32} />
+        <span>{option.label}</span>
+      </label>
+    ))}
+  </div>
+</div>
 
         
 
-        <label>
-          <input
-            type="checkbox"
-            checked={features.includes("kitchen")}
-            onChange={() => toggleFeature("kitchen")}
-          />
-          Kitchen
-        </label>
+        <div className={styles.block}>
+  <h3 className={styles.subtitle}>Vehicle equipment</h3>
 
-        <label>
-          <input
-            type="checkbox"
-            checked={features.includes("TV")}
-            onChange={() => toggleFeature("TV")}
-          />
-          TV
-        </label>
-      
+  <div className={styles.grid}>
+    {EQUIPMENT_OPTIONS.map(option => (
+      <label key={option.value} className={styles.card}>
+        <input
+          type="checkbox"
+          checked={features.includes(option.value)}
+          onChange={() => toggleFeature(option.value)}
+        />
 
-        <label>
-          <input
-            type="checkbox"
-            checked={features.includes("bathroom")}
-            onChange={() => toggleFeature("bathroom")}
-          />
-         Bathroom
-        </label>
-      </div>
+        <SvgIcon name={option.icon} width={32} height={32} />
+        <span>{option.label}</span>
+      </label>
+    ))}
+  </div>
+</div>
 
-      <div>
-        <h3>Vehicle type</h3>
+      <div className={styles.block}>
+  <h3 className={styles.subtitle}>Vehicle type</h3>
 
-        <label>
-            <input 
-            type="radio"
-             name="form" 
-             value="van"
-             checked= { form === "van" }
-             onChange={()=> setForm("van")}
-             />
-            Van
-        </label>
+  <div className={styles.grid}>
+    {VEHICLE_TYPES.map(option => (
+      <label key={option.value} className={styles.card}>
+        <input
+          type="radio"
+          name="form"
+          checked={form === option.value}
+          onChange={() => setForm(option.value)}
+        />
 
-        <label>
-            <input
-             type="radio" 
-             name="form" 
-             value="fully-integrated"
-             checked= { form === "fully-integrated" }
-             onChange={()=> setForm("fully-integrated")}
-             
-             />
-           Fully Integrated
-        </label>
+        <SvgIcon name={option.icon} width={32} height={32} />
+        <span>{option.label}</span>
+      </label>
+    ))}
+  </div>
+</div>
 
-        <label>
-            <input 
-            type="radio"
-            name="form"
-            value="alcove"
-            checked={form === "alcove"}
-            onChange={() => setForm("alcove")}
-            />
-            Alcove
-        </label>
-    </div>
-
-      <button onClick={handleSearch}>Search</button>
+      <button className={styles.searchBtn} onClick={handleSearch}>Search</button>
         </aside>
     )
 }

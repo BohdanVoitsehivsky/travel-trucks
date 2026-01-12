@@ -3,10 +3,13 @@ import Link from "next/link";
 import Image from "next/image";
 import SvgIcon from "./SvgIcon";
 import { useFavoriteStore } from "@/store/useFavoriteStore";
+import styles from "./CamperCard.module.css";
+
 
 interface CamperCardProps {
     camper: Camper;
 }
+
 
 
 
@@ -30,7 +33,7 @@ const FEATURE_MAP = [
 export default function CamperCard ({camper}: CamperCardProps) {
     const previewImage = camper.gallery?.[0]?.thumb;
 
-    const reviewCount = camper.reviews.length
+    const reviewCount = camper.reviews?.length ?? 0;
 
     const { toggleFavorite, isFavorite } = useFavoriteStore();
     const favorite = isFavorite(camper.id);
@@ -39,9 +42,10 @@ export default function CamperCard ({camper}: CamperCardProps) {
     
     return (
 
-        <li>
+        <li className={styles.card}>
             {previewImage && (
                 <Image 
+                className={styles.image}
                 src={previewImage}
                 alt={camper.name}
                 width={292}
@@ -50,41 +54,51 @@ export default function CamperCard ({camper}: CamperCardProps) {
             )}
 
         
-        <div>
-            <h2>{camper.name}</h2>
+        <div className={styles.content} >
+            <div className={styles.header}>
+            <h2 className={styles.name}>{camper.name}</h2>
             
-            <div>
-  <p>€{camper.price.toFixed(2)}</p>
+            <div className={styles.priceBlock}>
+  <span className={styles.price}>
+              €{camper.price.toFixed(2)}
+            </span>
 
-  <button onClick={() => toggleFavorite(camper)}>
+  <button className={styles.favoriteBtn} onClick={() => toggleFavorite(camper)}>
     <SvgIcon
       name={favorite ? "redheart" : "blackheart"}
       width={24}
       height={24}
     />
   </button>
+  </div>
 </div>
-            <p>
-                <SvgIcon 
-                name={camper.rating > 0 ? "yellowStar" : "whiteStar"}
-                width={16} height={16} />
-  <span>
-    {camper.rating} ({reviewCount} Reviews)
-  </span>
-  </p>
-            <p>{camper.location}</p>
-            <p>{camper.description}</p>
 
-            
-          <ul>
+<div className={styles.meta}>
+          <div className={styles.rating}>
+            <SvgIcon name="yellowStar" width={16} height={16} />
+            <span>
+              {camper.rating} ({reviewCount} Reviews)
+            </span>
+          </div>
+
+          <div className={styles.location}>
+            {camper.location}
+          </div>
+        </div>
+
+        
+        <p className={styles.description}>
+          {camper.description}
+        </p>
+
+        
+        <ul className={styles.features}>
           {FEATURE_MAP.map(({ key, label, icon }) => {
             const value = camper[key as keyof Camper];
-
-            
             if (!value) return null;
 
             return (
-              <li key={key}>
+              <li className={styles.feature} key={key}>
                 <SvgIcon name={icon} width={20} height={20} />
                 <span>
                   {typeof value === "string" ? value : label}
@@ -94,13 +108,14 @@ export default function CamperCard ({camper}: CamperCardProps) {
           })}
         </ul>
 
-            <Link
-            href={`/catalog/${camper.id}`}>
-
-            Show more
-
-            </Link>
-        </div>
-        </li>
-    )
+        
+        <Link
+          className={styles.link}
+          href={`/catalog/${camper.id}`}
+        >
+          Show more
+        </Link>
+      </div>
+    </li>
+  );
 }

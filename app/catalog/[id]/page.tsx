@@ -1,7 +1,5 @@
 import { getCamperById } from "@/services/campers";
-import CamperGallery from "@/components/CamperGallery";
-import CamperTabs from "@/components/CamperTabs/CamperTabs";
-import BookingForm from "@/components/BookingForm";
+import CamperLayout from "@/components/CamperLayout/CamperLayout";
 
 type CamperPageProps = {
   params: {
@@ -10,23 +8,7 @@ type CamperPageProps = {
 };
 
 export default async function CamperPage({ params }: CamperPageProps) {
-const { id } = await params;
-const camper = await getCamperById(id);
-  return (
-    <section>
-      <h1>{camper.name}</h1>
-      <p>€{camper.price.toFixed(2)}</p>
-      <p>{camper.location}</p>
+  const camper = await getCamperById(params.id);
 
-
-      <CamperGallery
-        gallery={camper.gallery}
-        name={camper.name}
-      />
-
-      <CamperTabs camper={camper} />
-
-      <BookingForm />
-    </section>
-  );
+  return <CamperLayout camper={camper} />;
 }

@@ -1,0 +1,60 @@
+.form {
+  width: 448px;
+  padding: 24px;
+  border-radius: 10px;
+  border: 1px solid #dadde1;
+  background-color: #ffffff;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #6c717b;
+  margin-bottom: 24px;
+}
+
+.field {
+  width: 100%;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+
+  border-radius: 10px;
+  border: none;
+  background-color: #f7f7f7;
+
+  font-size: 14px;
+}
+
+.field::placeholder {
+  color: #6c717b;
+}
+
+.textarea {
+  resize: none;
+  height: 118px;
+}
+
+.button {
+  margin-top: 24px;
+  padding: 16px;
+
+  border-radius: 200px;
+  border: none;
+
+  background-color: #e44848;
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #d84343;
+}

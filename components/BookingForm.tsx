@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import styles from "./BookingForm.module.css";
 
 export default function BookingForm() {
   const [name, setName] = useState("");
@@ -8,7 +9,7 @@ export default function BookingForm() {
   const [date, setDate] = useState("");
   const [comment, setComment] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const data = {
@@ -20,14 +21,19 @@ export default function BookingForm() {
 
     
     alert("Booking request sent!");
+    setName("");
+    setEmail("");
+    setDate("");
+    setComment("");
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>Book your campervan now</h3>
-      <p>Stay connected! We are always ready to help you.</p>
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <h3  className={styles.title} >Book your campervan now</h3>
+      <p className={styles.subtitle} >Stay connected! We are always ready to help you.</p>
 
       <input
+      className={styles.field}
         type="text"
         placeholder="Name"
         value={name}
@@ -36,6 +42,7 @@ export default function BookingForm() {
       />
 
       <input
+      className={styles.field}
         type="email"
         placeholder="Email"
         value={email}
@@ -44,6 +51,7 @@ export default function BookingForm() {
       />
 
       <input
+      className={styles.field}
         type="date"
         value={date}
         onChange={(e) => setDate(e.target.value)}
@@ -51,12 +59,13 @@ export default function BookingForm() {
       />
 
       <textarea
+      className={`${styles.field} ${styles.textarea}`}
         placeholder="Comment"
         value={comment}
         onChange={(e) => setComment(e.target.value)}
       />
 
-      <button type="submit">Send</button>
+      <button className={styles.button} type="submit">Send</button>
     </form>
   );
 }

@@ -1,0 +1,52 @@
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 48px 64px;
+}
+
+.header {
+  margin-bottom: 28px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.meta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.location {
+  color: #6c717b;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.content {
+  display: flex;
+  gap: 40px;
+  margin-top: 44px;
+}
+
+.left {
+  flex: 1;
+}
+
+.right {
+  width: 448px;
+}
