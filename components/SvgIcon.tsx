@@ -10,7 +10,7 @@ export default function SvgIcon({
   height = 20,
 }: SvgIconProps) {
   return (
-    <svg width={width} height={height} aria-hidden="true">
+    <svg width={width} height={height} aria-hidden="true" fill="currentColor">
       <use href={`/icons/sprite.svg#icon-${name}`} />
     </svg>
   );

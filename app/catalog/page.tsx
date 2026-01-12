@@ -19,7 +19,8 @@ export default  function CatalogPage() {
         fetchCampers();
 
     }, [fetchCampers])
-
+console.log("campers:", campers);
+console.log("isArray:", Array.isArray(campers));
 
     return (
         <main style={ {display: "flex", gap: "40px" }}>
@@ -27,6 +28,7 @@ export default  function CatalogPage() {
         <h1> Catalog</h1>
         {isLoading && campers.length === 0 && <p>Loading...</p>}
         <ul>
+            
             {campers.map(camper => (
                 <CamperCard key={camper.id} camper={camper} />
             ))}
@@ -41,3 +43,4 @@ export default  function CatalogPage() {
     )
 
 }
+

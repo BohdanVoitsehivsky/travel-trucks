@@ -19,6 +19,7 @@ export const useFavoriteStore = create<FavoriteState>((set, get) => ({
     const updatedFavorites = exists
       ? favorites.filter((item) => item.id !== camper.id)
       : [...favorites, camper];
+      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
 
     set({ favorites: updatedFavorites });
   },
