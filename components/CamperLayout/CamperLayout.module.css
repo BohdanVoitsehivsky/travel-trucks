@@ -106,80 +106,11 @@
   border-radius: 2px;
 }
 
-/* ---------- SIDEBAR ---------- */
-.sidebar {
-  width: 641px;
-  height: 588px;
-  border: 1px solid #dadde1;
-  border-radius: 10px;
-  padding: 24px;
-}
 
-.sidebarTitle {
-  font-size: 20px;
-  margin-bottom: 8px;
-  color: #101828;
-}
-
-.sidebarText {
-  font-size: 14px;
-  margin-bottom: 24px;
-  color: #6c717b;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-bottom: 44px;
-
-}
-
-
-.form input,
-.form textarea {
-  padding: 16px;
-  border-radius: 10px;
-  border: 1px solid #dadde1;
-  font-size: 14px;
-  background: #f7f7f7;
-  color: #6c717b;
-}
-
-.form textarea {
-  resize: none;
-  height: 114px;
-}
-
-.form button {
-  margin-top: 24px;
-  padding: 16px;
-  border-radius: 200px;
-  background-color: #e44848;
-  color: #fff;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  border-radius: 200px;
-padding: 16px 60px;
-width: 166px;
-height: 56px;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: row;
-gap: 10px;
-transition: background-color 0.2s ease;
-margin: 24px auto 0;
-}
-.form button:hover {
-background: #d84343;
-
-}
 
 .reviewsWrapper {
   background-color: #ffffff;
-  width: 631px;
+  width: 531px;
   height: 588px;
 
   border-radius: 10px;
@@ -187,7 +118,7 @@ background: #d84343;
 
 .futuresWrapper {
   background: #f7f7f7;
-  width: 631px;
+  width: 531px;
   height: 588px;
 
   border-radius: 10px;

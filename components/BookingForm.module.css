@@ -1,6 +1,7 @@
 .form {
-  width: 448px;
-  padding: 24px;
+  width: 531px;
+  height: 588px;
+  padding: 44px 57px;
   border-radius: 10px;
   border: 1px solid #dadde1;
   background-color: #ffffff;
@@ -39,22 +40,29 @@
   height: 118px;
 }
 
-.button {
+.form button {
   margin-top: 24px;
   padding: 16px;
-
   border-radius: 200px;
-  border: none;
-
   background-color: #e44848;
-  color: #ffffff;
-
+  color: #fff;
   font-size: 16px;
-  font-weight: 500;
-
+  border: none;
   cursor: pointer;
+  border-radius: 200px;
+  padding: 16px 60px;
+  width: 166px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  transition: background-color 0.2s ease;
+  margin: 24px auto 0;
 }
 
-.button:hover {
-  background-color: #d84343;
+.form button:hover {
+  background: #d84343;
+
 }

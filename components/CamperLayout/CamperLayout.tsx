@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import styles from "./CamperLayout.module.css";
+
 import { Camper } from "@/types/camper";
 import SvgIcon from "@/components/SvgIcon";
 import CamperFeatures from "../CamperFeatures/CamperFeatures";
 import ReviewsTab from "../CamperTabs/ReviewsTab";
 import { useState } from "react";
+import BookingForm from "../BookingForm";
 
 
 type Props = {
@@ -84,19 +86,9 @@ export default function CamperLayout({ camper }: Props) {
           )}
         </div>
     <aside className={styles.sidebar}>
-     <h3 className={styles.sidebarTitle}>Book your campervan now</h3>
-      <p className={styles.sidebarText}>
-            Stay connected! We are always ready to help you.
-      </p>
-
-       <form className={styles.form}>
-           <input placeholder="Name*" />
-           <input placeholder="Email*" />
-           <input placeholder="Booking date*" />
-           <textarea placeholder="Comment" />
-
-            <button type="submit">Send</button>
-          </form>
+     
+<BookingForm />
+       
         </aside>
       </section>
     </main>
