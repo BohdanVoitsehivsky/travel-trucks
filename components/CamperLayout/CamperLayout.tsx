@@ -51,7 +51,7 @@ export default function CamperLayout({ camper }: Props) {
             />
           </div>
         ))}
-      </section>,
+      </section>
 
       <p className={styles.description}>{camper.description}</p>
 <div className={styles.tabs}>
