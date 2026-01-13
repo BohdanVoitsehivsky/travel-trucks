@@ -9,12 +9,12 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      {/* Logo */}
+     
       <Link href="/" className={styles.logo}>
         Travel<span className={styles.logoAccent}>Trucks</span>
       </Link>
 
-      {/* Navigation */}
+     
       <nav className={styles.nav}>
         <Link
           href="/"

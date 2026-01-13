@@ -15,10 +15,10 @@ export default function CamperTabs({ camper }: Props) {
   return (
     <section>
       <div>
-        <button onClick={() => setActiveTab("features")}>
+        <button type="button" onClick={() => setActiveTab("features")}>
           Features
         </button>
-        <button onClick={() => setActiveTab("reviews")}>
+        <button type="button" onClick={() => setActiveTab("reviews")}>
           Reviews
         </button>
       </div>
@@ -30,3 +30,5 @@ export default function CamperTabs({ camper }: Props) {
     </section>
   );
 }
+
+

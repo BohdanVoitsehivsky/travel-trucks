@@ -39,9 +39,11 @@ export default  function CatalogPage() {
     </ul>
 
     {hasMore && (
+         <div className={styles.loadMoreWrapper}>
       <button className={styles.loadMore} onClick={loadMore}>
         Load more
       </button>
+      </div>
     )}
   </section>
 </main>

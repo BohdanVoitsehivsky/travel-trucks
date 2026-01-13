@@ -44,13 +44,17 @@ export default function CamperCard ({camper}: CamperCardProps) {
 
         <li className={styles.card}>
             {previewImage && (
+                
                 <Image 
                 className={styles.image}
                 src={previewImage}
                 alt={camper.name}
                 width={292}
                 height={320}
+                
+                
                 />
+                
             )}
 
         

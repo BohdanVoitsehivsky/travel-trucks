@@ -1,11 +1,11 @@
-.wrapper {
-  max-width: 1440px;
-  margin: 0 auto;
+.page {
   padding: 48px 64px;
 }
 
+/* ---------- HEADER ---------- */
 .header {
   margin-bottom: 28px;
+  
 }
 
 .title {
@@ -18,18 +18,15 @@
   display: flex;
   gap: 16px;
   align-items: center;
-  font-size: 14px;
   margin-bottom: 16px;
 }
 
-.rating {
+.rating,
+.location {
   display: flex;
   align-items: center;
   gap: 4px;
-}
-
-.location {
-  color: #6c717b;
+  font-size: 14px;
 }
 
 .price {
@@ -37,16 +34,172 @@
   font-weight: 600;
 }
 
+/* ---------- GALLERY ---------- */
+.gallery {
+  display: flex;
+
+  gap: 48px;
+  margin-bottom: 28px;
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  height: 312px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* ---------- CONTENT ---------- */
 .content {
   display: flex;
-  gap: 40px;
-  margin-top: 44px;
+  gap: 64px;
+  
+
 }
 
+/* LEFT */
 .left {
   flex: 1;
+  background: #f7f7f7;
+  border-radius: 10px;
+  
+
+
 }
 
-.right {
-  width: 448px;
+.description {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 60px;
+}
+
+.tabs {
+  display: flex;
+  gap: 40px;
+  border-bottom: 1px solid #dadde1;
+  margin-bottom: 44px;
+  
+}
+
+.tab {
+  padding-bottom: 12px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 4px;
+  background-color: #e44848;
+  border-radius: 2px;
+}
+
+/* ---------- SIDEBAR ---------- */
+.sidebar {
+  width: 641px;
+  height: 588px;
+  border: 1px solid #dadde1;
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.sidebarTitle {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #101828;
+}
+
+.sidebarText {
+  font-size: 14px;
+  margin-bottom: 24px;
+  color: #6c717b;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 44px;
+
+}
+
+
+.form input,
+.form textarea {
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #dadde1;
+  font-size: 14px;
+  background: #f7f7f7;
+  color: #6c717b;
+}
+
+.form textarea {
+  resize: none;
+  height: 114px;
+}
+
+.form button {
+  margin-top: 24px;
+  padding: 16px;
+  border-radius: 200px;
+  background-color: #e44848;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 200px;
+padding: 16px 60px;
+width: 166px;
+height: 56px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: row;
+gap: 10px;
+transition: background-color 0.2s ease;
+margin: 24px auto 0;
+}
+.form button:hover {
+background: #d84343;
+
+}
+
+.reviewsWrapper {
+  background-color: #ffffff;
+  width: 631px;
+  height: 588px;
+
+  border-radius: 10px;
+}
+
+.futuresWrapper {
+  background: #f7f7f7;
+  width: 631px;
+  height: 588px;
+
+  border-radius: 10px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.rating:hover span {
+  text-decoration: underline;
 }

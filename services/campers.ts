@@ -40,13 +40,9 @@ export async function getCampers(params: GetCampersParams = {}): Promise<Camper[
 
 
 export async function getCamperById(id: string): Promise<Camper> {
-  const res = await api.get<CampersResponse>("/campers", {
-    params: { id },
-  });
-
-  if (!res.data.items.length) {
-    throw new Error("Camper not found");
-  }
-
-  return res.data.items[0];
+  
+  const res = await api.get<Camper>(`/campers/${id}`);
+  return res.data;
 }
+
+
