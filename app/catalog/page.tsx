@@ -30,7 +30,8 @@ export default  function CatalogPage() {
   </aside>
 
   <section className={styles.content}>
-    <h1 className={styles.title}>Catalog</h1>
+          <h1 className={styles.title}>Catalog</h1>
+           {isLoading && <p className={styles.loader}>Loading...</p>}
 
     <ul className={styles.list}>
       {campers.map(camper => (

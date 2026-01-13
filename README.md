@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Campers Rental
 
-## Getting Started
+Вебзастосунок для пошуку та перегляду кемперів з можливістю фільтрації, додавання в обране та перегляду детальної інформації про кожен кемпер.
 
-First, run the development server:
+Проєкт реалізований як фронтенд-застосунок з використанням Next.js, TypeScript та MockAPI.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Опис проєкту:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Campers Rental — це сервіс для оренди кемперів, де користувач може:
+переглядати каталог доступних кемперів;
+фільтрувати кемпери за параметрами;
+відкривати сторінку конкретного кемпера;
+переглядати характеристики та відгуки;
+додавати кемпери до обраного;
+надсилати запит на бронювання.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Основні функції:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+головна сторінка з hero-секцією та кнопкою переходу до каталогу,
+каталог кемперів,
+пагінація (Load More),
+фільтрація за параметрами,
+лоадер під час асинхронних запитів,
+одавання / видалення кемперів в обране,
+збереження стану (localStorage),
+Сторінка окремого кемпера,
+галерея фото,
+вкладки Features / Reviews,
+форма бронювання,
+Відгуки
+рейтинг
+коментарі користувачів
 
-## Learn More
+Технології:
 
-To learn more about Next.js, take a look at the following resources:
+Next.js (App Router)
+React
+TypeScript
+Zustand — глобальний state
+Axios — HTTP-запити
+CSS Modules
+MockAPI — бекенд
+Vercel — деплой
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Автор:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Богдан Войцехівський
+Frontend Developer
